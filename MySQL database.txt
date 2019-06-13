@@ -1,0 +1,30 @@
+create database if not exists user_information;
+use user_information;
+
+create table user
+(
+UserName varchar(15),
+Password varchar(15),
+Phone_Number varchar(20) primary key,
+E_mail varchar(25),
+Sex varchar(7)
+);
+insert into user values('zhang li',1234,16637693891,'2847200476@qq.com','ÄÐ'),
+('ma ming gao',1234,17737695762,'2250422052@qq.com','ÄÐ'),
+('wang pei weng',1234,13526008556,'2343468452@qq.com','Å®');
+create table chooce
+(
+bid varchar(20) ,
+number int not null
+);
+
+insert into chooce values('10:00-12:40 A501',80),
+('13:00-15:40 A502',50),
+('16:00-18:40 A503',30),
+('19:00-21:40 A504',40);
+create table book
+(
+ordernum int 
+);
+
+create view movie as select Phone_Number,bid,ordernum from user as a,chooce as c,book as b;
